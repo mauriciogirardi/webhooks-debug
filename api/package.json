@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
+    "db:seed": "tsx --env-file=.env src/db/seed.ts",
     "start": "node dist/server.js",
     "lint": "pnpm exec biome format --write",
     "db:generate": "drizzle-kit generate",
@@ -17,6 +18,7 @@
   "packageManager": "pnpm@10.18.3",
   "devDependencies": {
     "@biomejs/biome": "2.3.4",
+    "@faker-js/faker": "^10.1.0",
     "@types/node": "^24.10.0",
     "@types/pg": "^8.15.6",
     "drizzle-kit": "^0.31.6",
