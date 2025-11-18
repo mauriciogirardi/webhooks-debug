@@ -1,6 +1,7 @@
 import { CopyIcon } from 'lucide-react'
 import { IconButton } from './ui/icon-button'
-import { WebhookList } from './webhook-list'
+import { WebhookList, WebhookListSkeleton } from './webhook-list'
+import { Suspense } from 'react'
 
 export function Sidebar() {
   return (
@@ -19,7 +20,9 @@ export function Sidebar() {
         <IconButton icon={<CopyIcon className="size-4" />} aria-label="Copiar http://localhost:3333/api/capture" />
       </div>
 
-      <WebhookList />
+      <Suspense fallback={<WebhookListSkeleton />}>
+        <WebhookList />
+      </Suspense>
     </aside>
   )
 }
