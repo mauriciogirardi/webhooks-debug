@@ -2,6 +2,7 @@ import { CopyIcon } from 'lucide-react'
 import { IconButton } from './ui/icon-button'
 import { WebhookList, WebhookListSkeleton } from './webhook-list'
 import { Suspense } from 'react'
+import { env } from '../envs'
 
 export function Sidebar() {
   return (
@@ -15,9 +16,9 @@ export function Sidebar() {
 
       <div className="flex items-center justify-between gap-2 border-b border-zinc-800 bg-zinc-800 px-4 py-2.5">
         <div className="flex-1 flex items-center min-w-0 gap-1 text-xs font-mono text-zinc-300">
-          <span className="truncate">http://localhost:3333/api/capture</span>
+          <span className="truncate">{`${env.VITE_BASE_URL}/capture`}</span>
         </div>
-        <IconButton icon={<CopyIcon className="size-4" />} aria-label="Copiar http://localhost:3333/api/capture" />
+        <IconButton icon={<CopyIcon className="size-4" />} aria-label={`Copy ${env.VITE_BASE_URL}/capture`} />
       </div>
 
       <Suspense fallback={<WebhookListSkeleton />}>

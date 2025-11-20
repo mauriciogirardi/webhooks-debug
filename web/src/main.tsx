@@ -12,6 +12,7 @@ declare module '@tanstack/react-router' {
   }
 }
 
+// biome-ignore lint/style/noNonNullAssertion: ""
 const rootElement = document.getElementById('root')!
 
 if (!rootElement.innerHTML) {

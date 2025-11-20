@@ -6,12 +6,13 @@ import { SectionDataTable } from './section-data-table'
 import { WebhookDetailHeader, WebhookDetailHeaderSkeleton } from './webhook-detail-header'
 import { Skeleton } from './ui/skeleton'
 import { GenericError } from './ui/generic-error'
+import { env } from '../envs'
 
 export function WebhookDetails({ id }: { id: string }) {
   const { data, isError, refetch } = useSuspenseQuery({
     queryKey: ['webhook', id],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:3333/api/webhooks/${id}`)
+      const response = await fetch(`${env.VITE_BASE_URL}/webhooks/${id}`)
       const data = await response.json()
       return webhookDetailsSchema.parse(data)
     },

@@ -18,6 +18,7 @@ export function CodeBlock({ className, code, language = 'json', ...props }: Code
 
   return (
     <div className={twMerge('relative rounded-lg border border-zinc-700 overflow-x-auto', className)} {...props}>
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: "" */}
       <div className="[&_pre]:p-4 [&_pre]:text-sm [&_pre]:font-mono" dangerouslySetInnerHTML={{ __html: parsedCode }} />
     </div>
   )
